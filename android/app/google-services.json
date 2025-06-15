@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "248589979329",
+    "project_id": "auvnet-flutter-assessment",
+    "storage_bucket": "auvnet-flutter-assessment.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248589979329:android:40dc2e07195139b4cace40",
+        "android_client_info": {
+          "package_name": "com.example.auvnet_flutter_internship_assessment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDne6Dm_yaEoZV0ZpQpN3OVlr3PR3o0okU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
