@@ -24,33 +24,34 @@ class PageViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+
     return Column(
       children: [
         SizedBox(
           width: double.infinity,
-          height: MediaQuery.of(context).size.height * 0.5,
+          height: height * 0.5,
           child: Stack(
             children: [
               Positioned(
-                top: -20, // يدفع الدائرة لفوق
-                left: -200,
-                right: -30,
+                top: -height * 0.025,
+                left: -width * 0.55,
+                right: -width * 0.08,
                 child: Image.asset(
                   image,
-                  height: 300,
-                  width: 300,
+                  height: height * 0.375,
+                  width: height * 0.375,
                 ),
               ),
-
-              // Logo image overlapping below the ellipse
               Positioned(
-                top: 90, // اتحكم في موضع اللوجو
+                top: height * 0.112,
                 left: -10,
                 right: 0,
                 child: Center(
                   child: Image.asset(
                     image2,
-                    height: 300,
+                    height: height * 0.375,
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -58,11 +59,11 @@ class PageViewItem extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 64),
+        SizedBox(height: height * 0.08),
         title,
-        const SizedBox(height: 24),
+        SizedBox(height: height * 0.03),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 37),
+          padding: EdgeInsets.symmetric(horizontal: width * 0.1),
           child: Text(
             subtitle,
             textAlign: TextAlign.center,
@@ -71,29 +72,27 @@ class PageViewItem extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
-          height: 50,
-        ),
+        SizedBox(height: height * 0.0625),
         CustomButton(
-            onpressed: () {
-              Prefs.setBool("isOnboardingViewSeen", true);
-              Navigator.of(context).pushReplacementNamed(LoginView.routename);
-            },
-            text: "Get Started"),
-        SizedBox(
-          height: 15,
+          onpressed: () {
+            Prefs.setBool("isOnboardingViewSeen", true);
+            Navigator.of(context).pushReplacementNamed(LoginView.routename);
+          },
+          text: "Get Started",
         ),
+        SizedBox(height: height * 0.018),
         GestureDetector(
-            onTap: () {
-              controller.nextPage(
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-              );
-            },
-            child: Text(
-              "next",
-              style: TextStyle(color: Color(0xff677294)),
-            ))
+          onTap: () {
+            controller.nextPage(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+            );
+          },
+          child: const Text(
+            "next",
+            style: TextStyle(color: Color(0xff677294)),
+          ),
+        ),
       ],
     );
   }
