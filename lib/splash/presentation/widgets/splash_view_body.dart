@@ -41,8 +41,8 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       children: [
         Image.asset(
           "assets/images/nawel.png",
-
-        ),      ],
+        ),
+      ],
     );
   }
 }

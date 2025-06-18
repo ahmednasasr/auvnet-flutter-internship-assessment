@@ -6,7 +6,6 @@ import '../../../../core/widgets/custome_text_field.dart';
 import '../manger/cubits/sign_up_cubit/signin_bloc.dart';
 import '../manger/cubits/sign_up_cubit/signin_event.dart';
 import 'dont_have_account.dart';
-import 'have_account.dart';
 
 class SignupViewBody extends StatefulWidget {
   const SignupViewBody({super.key});

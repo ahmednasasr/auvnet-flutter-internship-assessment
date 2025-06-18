@@ -54,7 +54,6 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: OnGenerateRoute,
         initialRoute: SplashView.routename,
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
           fontFamily: "Cairo",
         ),
       ),
