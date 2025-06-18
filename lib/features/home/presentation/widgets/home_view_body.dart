@@ -2,6 +2,7 @@ import 'package:auvnet_flutter_internship_assessment/features/home/presentation/
 import 'package:auvnet_flutter_internship_assessment/features/home/presentation/widgets/service_item.dart';
 import 'package:auvnet_flutter_internship_assessment/features/home/presentation/widgets/shortcut_item.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../core/services/hive.dart';
 
@@ -60,6 +61,12 @@ class HomePageContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final PageController adController = PageController();
+    final List<String> adImages = [
+      "assets/images/photo_2023-09-03_13-36-55 1.png",
+      "assets/images/photo_2023-09-03_13-36-55 1.png",
+      "assets/images/photo_2023-09-03_13-36-55 1.png",
+    ];
     return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(
@@ -193,20 +200,44 @@ class HomePageContent extends StatelessWidget {
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Container(
-              height: 140,
-              decoration: BoxDecoration(
-                color: Colors.pink.shade100,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Expanded(
-                child: Image.asset(
-                  "assets/images/photo_2023-09-03_13-36-55 1.png",
-                  height: 80,
-                  width: 80,
-                  fit: BoxFit.cover,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 140,
+                  child: PageView.builder(
+                    controller: adController,
+                    itemCount: adImages.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.pink.shade100,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.asset(
+                            adImages[index],
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
+                const SizedBox(height: 8),
+                SmoothPageIndicator(
+                  controller: adController,
+                  count: adImages.length,
+                  effect: ExpandingDotsEffect(
+                    dotColor: Colors.grey.shade300,
+                    activeDotColor: Colors.purple,
+                    dotHeight: 8,
+                    dotWidth: 8,
+                    expansionFactor: 2,
+                  ),
+                ),
+              ],
             ),
           ),
         ),

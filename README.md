@@ -44,7 +44,21 @@ This app delivers a smooth user experience from the splash screen to authenticat
 
 ## 📸 Screenshots
 
-```md
-![Splash](assets/images/nawel.png)
-![Onboarding](screenshots/onboarding1.png)
-![Login](screenshots/login.png)
+```used images
+assets/images/6.png
+assets/images/13 1.png
+assets/images/213123.png
+assets/images/Ellipse 153.png
+/.Shortcuts images
+assets/images/Group 10.png
+assets/images/Group 6.png
+//
+// Popular restaurants nearby images
+assets/images/Group 13.png
+assets/images/Group 14.png
+assets/images/Group 16.png
+assets/images/Group 17.png
+//
+assets/images/nawel.png
+assets/images/photo_2023-09-03_13-36-55 1.png
+

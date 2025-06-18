@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../errors/exceptions.dart';
 
 class FirebaseAuthService {
+
+  // fun of create user with email and password
   Future<User> createUserWithEmailAndPassword(
       {required String email, required String password}) async {
     try {
@@ -24,6 +26,8 @@ class FirebaseAuthService {
       throw CustomException("حدث خطأ، يرجى المحاولة مرة أخرى لاحقًا.");
     }
   }
+
+  // fun of sign in with email and password
 
   Future<User> signInWithEmailAndPassword({
     required String email,
@@ -48,9 +52,13 @@ class FirebaseAuthService {
     }
   }
 
+  // fun of delete user used when an error occurs during sign up or sign in
+
   Future deleteUser() async {
     await FirebaseAuth.instance.currentUser!.delete();
   }
+
+  // fun of sign out user
 
   bool loggedIn() {
     return FirebaseAuth.instance.currentUser != null;
