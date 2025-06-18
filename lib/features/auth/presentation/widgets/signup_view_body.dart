@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custome_text_field.dart';
-import '../manger/cubits/sign_up_cubit/signin_bloc.dart';
-import '../manger/cubits/sign_up_cubit/signin_event.dart';
+import '../manger/cubits/sign_in_bloc/signin_bloc.dart';
+import '../manger/cubits/sign_in_bloc/signin_event.dart';
 import 'dont_have_account.dart';
 
 class SignupViewBody extends StatefulWidget {

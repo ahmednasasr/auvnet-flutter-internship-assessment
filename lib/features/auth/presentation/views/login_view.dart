@@ -5,8 +5,8 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../../core/services/get_it.dart';
 import '../../../home/presentation/views/home_view.dart';
 import '../../domain/repo/auth_repo.dart';
-import '../manger/cubits/login_cubit/login_bloc.dart';
-import '../manger/cubits/login_cubit/login_state.dart';
+import '../manger/cubits/login_bloc/login_bloc.dart';
+import '../manger/cubits/login_bloc/login_state.dart';
 import '../widgets/login_view_body.dart';
 
 class LoginView extends StatelessWidget {

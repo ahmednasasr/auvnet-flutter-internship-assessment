@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../../core/services/get_it.dart';
 import '../../domain/repo/auth_repo.dart';
-import '../manger/cubits/sign_up_cubit/signin_bloc.dart';
-import '../manger/cubits/sign_up_cubit/signin_state.dart';
+import '../manger/cubits/sign_in_bloc/signin_bloc.dart';
+import '../manger/cubits/sign_in_bloc/signin_state.dart';
 import '../widgets/signup_view_body.dart';
 
 class SignupView extends StatelessWidget {

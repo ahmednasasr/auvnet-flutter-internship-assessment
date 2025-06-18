@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custome_text_field.dart';
-import '../manger/cubits/login_cubit/login_bloc.dart';
-import '../manger/cubits/login_cubit/login_event.dart';
+import '../manger/cubits/login_bloc/login_bloc.dart';
+import '../manger/cubits/login_bloc/login_event.dart';
 import 'dont_have_account.dart';
 import 'or_divider.dart';
 

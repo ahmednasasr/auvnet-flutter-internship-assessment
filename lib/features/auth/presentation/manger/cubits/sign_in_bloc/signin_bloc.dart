@@ -1,5 +1,5 @@
-import 'package:auvnet_flutter_internship_assessment/features/auth/presentation/manger/cubits/sign_up_cubit/signin_event.dart';
-import 'package:auvnet_flutter_internship_assessment/features/auth/presentation/manger/cubits/sign_up_cubit/signin_state.dart';
+import 'package:auvnet_flutter_internship_assessment/features/auth/presentation/manger/cubits/sign_in_bloc/signin_event.dart';
+import 'package:auvnet_flutter_internship_assessment/features/auth/presentation/manger/cubits/sign_in_bloc/signin_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../domain/repo/auth_repo.dart';
 

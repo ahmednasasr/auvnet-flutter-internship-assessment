@@ -7,8 +7,8 @@ import 'core/helper_functions/on_generate_route.dart';
 import 'core/services/get_it.dart';
 import 'core/services/hive.dart';
 import 'core/services/shared_preferences_singleton.dart';
-import 'features/auth/presentation/manger/cubits/login_cubit/login_bloc.dart';
-import 'features/auth/presentation/manger/cubits/sign_up_cubit/signin_bloc.dart';
+import 'features/auth/presentation/manger/cubits/login_bloc/login_bloc.dart';
+import 'features/auth/presentation/manger/cubits/sign_in_bloc/signin_bloc.dart';
 import 'firebase_options.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
