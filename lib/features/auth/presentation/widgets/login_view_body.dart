@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/utils/app_color.dart';
-import '../../../../core/utils/app_text_style.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custome_text_field.dart';
 import '../manger/cubits/login_cubit/login_bloc.dart';
