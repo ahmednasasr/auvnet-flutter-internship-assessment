@@ -42,7 +42,7 @@ This app delivers a smooth user experience from the splash screen to authenticat
 
 ---
 
-## 📸 Screenshots
+## 📸 Images
 
 ```used images
 assets/images/6.png
