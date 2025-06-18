@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custome_text_field.dart';
-import '../manger/cubits/sign_up_cubit/signin_cubit.dart';
+import '../manger/cubits/sign_up_cubit/signin_bloc.dart';
+import '../manger/cubits/sign_up_cubit/signin_event.dart';
 import 'dont_have_account.dart';
 import 'have_account.dart';
 
@@ -76,10 +77,13 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   onpressed: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      context
-                          .read<SignupCubit>()
-                          .createUserWithEmailAndPassword(
-                              email, password, username);
+                      context.read<SignupBloc>().add(
+                        SignupSubmitted(
+                          email: email.trim(),
+                          password: password.trim(),
+                          name: username.trim(),
+                        ),
+                      );
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;

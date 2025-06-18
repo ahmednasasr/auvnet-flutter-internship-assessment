@@ -1,22 +1,31 @@
-import 'package:flutter/foundation.dart';
-
+import 'package:equatable/equatable.dart';
 import '../../../../domain/entitys/user_entity.dart';
 
-@immutable
-sealed class LoginState {}
+abstract class LoginState extends Equatable {
+  const LoginState();
 
-final class LoginInitial extends LoginState {}
-
-final class LoginLoading extends LoginState {}
-
-final class LoginSuccess extends LoginState {
-  final UserEntity userEntity;
-
-  LoginSuccess({required this.userEntity});
+  @override
+  List<Object?> get props => [];
 }
 
-final class LoginFailure extends LoginState {
+class LoginInitial extends LoginState {}
+
+class LoginLoading extends LoginState {}
+
+class LoginSuccess extends LoginState {
+  final UserEntity userEntity;
+
+  const LoginSuccess({required this.userEntity});
+
+  @override
+  List<Object?> get props => [userEntity];
+}
+
+class LoginFailure extends LoginState {
   final String message;
 
-  LoginFailure({required this.message});
+  const LoginFailure({required this.message});
+
+  @override
+  List<Object?> get props => [message];
 }

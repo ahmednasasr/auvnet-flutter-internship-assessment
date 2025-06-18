@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -6,7 +5,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import '../../../../core/services/get_it.dart';
 import '../../../home/presentation/views/home_view.dart';
 import '../../domain/repo/auth_repo.dart';
-import '../manger/cubits/login_cubit/login_cubit.dart';
+import '../manger/cubits/login_cubit/login_bloc.dart';
 import '../manger/cubits/login_cubit/login_state.dart';
 import '../widgets/login_view_body.dart';
 
@@ -17,9 +16,9 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginCubit(getIt<AuthRepo>()),
+      create: (context) => LoginBloc(getIt<AuthRepo>()),
       child: Scaffold(
-        body: BlocConsumer<LoginCubit, LoginState>(
+        body: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state) {
             if (state is LoginSuccess) {
               ScaffoldMessenger.of(context).showSnackBar(
@@ -36,8 +35,8 @@ class LoginView extends StatelessWidget {
           },
           builder: (context, state) {
             return ModalProgressHUD(
-              inAsyncCall: state is LoginLoading ? true : false,
-              child:  LoginViewBody(),
+              inAsyncCall: state is LoginLoading,
+              child: LoginViewBody(),
             );
           },
         ),

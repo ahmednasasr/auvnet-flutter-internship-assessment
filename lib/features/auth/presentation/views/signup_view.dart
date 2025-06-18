@@ -1,11 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../core/services/get_it.dart';
 import '../../domain/repo/auth_repo.dart';
-import '../manger/cubits/sign_up_cubit/signin_cubit.dart';
+import '../manger/cubits/sign_up_cubit/signin_bloc.dart';
 import '../manger/cubits/sign_up_cubit/signin_state.dart';
 import '../widgets/signup_view_body.dart';
 
@@ -17,9 +16,9 @@ class SignupView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SignupCubit(getIt<AuthRepo>()),
+      create: (context) => SignupBloc(getIt<AuthRepo>()),
       child: Scaffold(
-        body: BlocConsumer<SignupCubit, SignupState>(
+        body: BlocConsumer<SignupBloc, SignupState>(
           listener: (context, state) {
             if (state is SignupSuccess) {
               ScaffoldMessenger.of(context).showSnackBar(
@@ -36,7 +35,7 @@ class SignupView extends StatelessWidget {
           },
           builder: (context, state) {
             return ModalProgressHUD(
-              inAsyncCall: state is SignupLoading ? true : false,
+              inAsyncCall: state is SignupLoading,
               child: const SignupViewBody(),
             );
           },
@@ -44,7 +43,4 @@ class SignupView extends StatelessWidget {
       ),
     );
   }
-
-
-  }
-
+}

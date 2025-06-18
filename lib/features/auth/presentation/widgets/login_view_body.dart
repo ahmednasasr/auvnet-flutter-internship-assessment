@@ -5,7 +5,8 @@ import '../../../../core/utils/app_color.dart';
 import '../../../../core/utils/app_text_style.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custome_text_field.dart';
-import '../manger/cubits/login_cubit/login_cubit.dart';
+import '../manger/cubits/login_cubit/login_bloc.dart';
+import '../manger/cubits/login_cubit/login_event.dart';
 import 'dont_have_account.dart';
 import 'or_divider.dart';
 
@@ -31,7 +32,10 @@ class LoginViewBody extends StatelessWidget {
               ),
               CustomeTextFormField(
                 controller: emailController,
-                prefixIcon: Icon(Icons.mail,color: Color(0xff677294),),
+                prefixIcon: Icon(
+                  Icons.mail,
+                  color: Color(0xff677294),
+                ),
                 hintText: "mail ",
                 textInputType: TextInputType.emailAddress,
               ),
@@ -42,16 +46,22 @@ class LoginViewBody extends StatelessWidget {
                 controller: passwordController,
                 hintText: "password",
                 textInputType: TextInputType.visiblePassword,
-                prefixIcon: Icon(Icons.password,color: Color(0xff677294),),
-
+                prefixIcon: Icon(
+                  Icons.password,
+                  color: Color(0xff677294),
+                ),
               ),
               SizedBox(
                 height: 16,
               ),
               CustomButton(
                   onpressed: () {
-                    context.read<LoginCubit>().signinWithEmailAndPassword(
-                        emailController.text, passwordController.text);
+                    context.read<LoginBloc>().add(
+                          LoginSubmitted(
+                            email: emailController.text.trim(),
+                            password: passwordController.text.trim(),
+                          ),
+                        );
                   },
                   text: "Log In"),
               SizedBox(
@@ -61,7 +71,6 @@ class LoginViewBody extends StatelessWidget {
               SizedBox(
                 height: 33,
               ),
-
             ],
           ),
         ),
